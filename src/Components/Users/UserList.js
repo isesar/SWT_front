@@ -6,7 +6,8 @@ const UserList = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchName, setSearchName] = useState("");
-
+  //const existingTokens = JSON.parse(localStorage.getItem("cookies"));
+ // console.log(existingTokens);
   const retrieveUsers = () => {
     UserService.getAll()
       .then((response) => {

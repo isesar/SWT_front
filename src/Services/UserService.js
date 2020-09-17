@@ -1,7 +1,7 @@
-import http from "../axios";
+import http from "../utils/axios";
 
 const getAll = () => {
-  return http.get("/korisnik");
+  return http.get("/korisnik/");
 };
 
 const get = id => {

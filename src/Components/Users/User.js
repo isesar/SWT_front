@@ -30,20 +30,20 @@ const User = (props) => {
         console.log(e);
       });
   };
+  const fetchFirma = async () => {
+    const result = await axios("https://localhost:44358/api/firma");
+
+    setFirma(result.data);
+    console.log(result.data);
+  };
   useEffect(() => {
     getUser(props.match.params.id);
   }, [props.match.params.id]);
+
+
   const handleInputChange = (event) => {
     const { ime, value } = event.target;
     setCurrentUser({ ...currentUser, [ime]: value });
-
-    const fetchFirma = async () => {
-      const result = await axios("https://localhost:44358/api/firma");
-
-      setFirma(result.data);
-      console.log(result.data);
-    };
-
     fetchFirma();
   };
 

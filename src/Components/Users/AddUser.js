@@ -8,8 +8,8 @@ const AddUser = (props) => {
     username: "",
     lozinka: "",
     brojTelefona: "",
-    firmaNavigation: "",
-    fakultetNavigation: "",
+    firma:"",
+    fakultet: "",
     uloga: "",
     projekt: "",
     mail: "",
@@ -37,14 +37,15 @@ const AddUser = (props) => {
     setUser(user=>({ ...user, [name]: value }));
     console.log(user);
   };
+
   const saveUser = () => {
     var data = {
       ime: user.ime,
       lozinka: user.lozinka,
-      username: user.username,
+      korisnickoIme: user.username,
       brojTelefona: user.brojTelefona,
-      firmaNavigation: user.firmaIme,
-      fakultetNavigation:"",
+      firma:user.firma,
+      fakultet:user.fakultet,
       uloga: user.uloga,
       projekt: user.projekt,
       mail: user.mail,
@@ -58,10 +59,10 @@ const AddUser = (props) => {
           ime: response.data.ime,
           email: response.data.email,
           lozinka: response.data.lozinka,
-          username: response.data.username,
+          korisnickoIme: response.data.username,
           brojTelefona: response.data.brojTelefona,
-          firmaNavigation: response.data.firmaNavigation,
-          fakultetNavigation: response.data.fakultetIme,
+          firma: response.data.firma,
+          fakultet: response.data.fakultet,
           uloga: response.data.uloga,
           projekt: response.data.projekt,
           mail: response.data.mail,
@@ -141,9 +142,9 @@ const AddUser = (props) => {
             />
           </div>
           <div className="form-control">
-            <select  onChange={handleInputChange} name="firmaNavigation" value={user.firmaIme}>
+            <select  onChange={handleInputChange} name="firma" value={firma.firmaId}>
               {firma.map((firma) => (
-                <option key={firma.firmaId} onChange={handleInputChange} >
+                <option key={firma.firmaId} value={firma.firmaId} >
                   {firma.firmaIme}
                 </option>
               ))}
